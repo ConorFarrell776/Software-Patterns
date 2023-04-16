@@ -2,6 +2,8 @@ package com.example.ca4;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,12 +15,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
-    EditText email, password;
+    EditText email, password,address,payment;
     Button register;
     FirebaseAuth mAuth;
     TextView login;
+    FirebaseDatabase rootNode;
+    DatabaseReference userDB;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,11 +33,14 @@ public class Register extends AppCompatActivity {
         email = findViewById(R.id.register_email);
         password = findViewById(R.id.register_password);
         register  = findViewById(R.id.register);
+        address = findViewById(R.id.address);
+        payment  = findViewById(R.id.paymentMethods);
         login = findViewById(R.id.text_login);
-
+        userDB = FirebaseDatabase.getInstance().getReference().child("Users");
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                insertUser();
                 Register();
             }
         });
@@ -44,6 +53,19 @@ public class Register extends AppCompatActivity {
         });
 
     }
+
+    private void insertUser() {
+        String aEmail = email.getText().toString();
+        String aAddress = address.getText().toString();
+        String aPayment = payment.getText().toString();
+
+
+        User user = new User(aEmail,aAddress,aPayment);
+
+        userDB.push().setValue(user);
+
+    }
+
     private void Register()
     {
         String user = email.getText().toString().trim();
