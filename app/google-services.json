@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "69747262938",
+    "firebase_url": "https://softwarepatternsca4-d433b-default-rtdb.firebaseio.com",
+    "project_id": "softwarepatternsca4-d433b",
+    "storage_bucket": "softwarepatternsca4-d433b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69747262938:android:f87bbfe462e7b04b176ce3",
+        "android_client_info": {
+          "package_name": "com.example.ca4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "69747262938-b9l1n65oc9jq9afufddn4gqj8n4ri883.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTGIDVYipyQ_6JI5e3VeQ2q5w22mE336M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "69747262938-b9l1n65oc9jq9afufddn4gqj8n4ri883.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
