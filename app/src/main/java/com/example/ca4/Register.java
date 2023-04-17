@@ -19,7 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Register extends AppCompatActivity {
-    EditText email, password,address,payment;
+    EditText email,name, password,address,payment;
     Button register;
     FirebaseAuth mAuth;
     TextView login;
@@ -31,6 +31,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         mAuth = FirebaseAuth.getInstance();
         email = findViewById(R.id.register_email);
+        name = findViewById(R.id.register_name);
         password = findViewById(R.id.register_password);
         register  = findViewById(R.id.register);
         address = findViewById(R.id.address);
@@ -58,11 +59,18 @@ public class Register extends AppCompatActivity {
         String aEmail = email.getText().toString();
         String aAddress = address.getText().toString();
         String aPayment = payment.getText().toString();
+        String aName = name.getText().toString();
         boolean aAdmin = false;
 
-        User user = new User(aEmail,aAddress,aPayment,aAdmin);
+        User user = new User(aEmail,aName,aAddress,aPayment,aAdmin);
+        rootNode = FirebaseDatabase.getInstance();
+        userDB = rootNode.getReference("User");
+        userDB.child(aName).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
 
-        userDB.push().setValue(user);
+            }
+        });
 
     }
 
