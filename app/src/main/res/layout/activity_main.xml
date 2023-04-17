@@ -66,4 +66,13 @@
         android:text="" />
 
 
+    <Button
+        android:id="@+id/purchase"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="486dp"
+        android:text="purchase" />
+
+
 </RelativeLayout>

@@ -58,9 +58,9 @@ public class Register extends AppCompatActivity {
         String aEmail = email.getText().toString();
         String aAddress = address.getText().toString();
         String aPayment = payment.getText().toString();
+        boolean aAdmin = false;
 
-
-        User user = new User(aEmail,aAddress,aPayment);
+        User user = new User(aEmail,aAddress,aPayment,aAdmin);
 
         userDB.push().setValue(user);
 

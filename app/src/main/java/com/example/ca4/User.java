@@ -2,6 +2,7 @@ package com.example.ca4;
 
 public class User {
     String  email, address, payment;
+    boolean admin;
 
     public User() {
 
@@ -30,10 +31,19 @@ public class User {
         this.payment = payment;
     }
 
-    public User (String email, String address, String payment) {
+    public Boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Boolean admin) {
+        this.admin = admin;
+    }
+
+    public User (String email, String address, String payment,boolean admin) {
         this.email = email;
         this.address = address;
         this.payment = payment;
+        this.admin = admin;
     }
 
 }
