@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         dcat = findViewById(R.id.dcat);
         dstock = findViewById(R.id.dstock);
         purchase = findViewById(R.id.purchase);
+
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

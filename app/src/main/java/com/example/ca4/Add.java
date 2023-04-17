@@ -57,6 +57,18 @@ public class Add extends AppCompatActivity {
         String aCat = cat.getText().toString();
         int aStock = Integer.parseInt(stock.getText().toString());
         Items items = new Items(aName,aPrice,aManu,aCat,aStock);
+        ElectronicFactory electronicFactory = new ElectronicFactory();
+        ElectronicInterface electronicInterface = ElectronicFactory.getInterface("Laptop");
+        if(aCat.equals("Laptop"))
+        {
+            electronicInterface = ElectronicFactory.getInterface("Laptop");
+        } else if (aCat.equals("Phone")) {
+            electronicInterface = ElectronicFactory.getInterface("Phone");
+        }
+        else if (aCat.equals("Ipad")) {
+        electronicInterface = ElectronicFactory.getInterface("Ipad");
+
+        }
         rootNode = FirebaseDatabase.getInstance();
         itemDB = rootNode.getReference("Items");
         itemDB.child(aName).setValue(items).addOnCompleteListener(new OnCompleteListener<Void>() {
