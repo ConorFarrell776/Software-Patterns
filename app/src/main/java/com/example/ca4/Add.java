@@ -85,4 +85,29 @@ public class Add extends AppCompatActivity {
             }
         });
     }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_navigate, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Toast.makeText(this, "Selected Item: " + item.getTitle(), Toast.LENGTH_SHORT).show();
+        switch (item.getItemId()) {
+            case R.id.Home:
+                startActivity(new Intent(Add.this, MainActivity.class));
+                return true;
+            case R.id.Update:
+                startActivity(new Intent(Add.this, Update.class));
+                return true;
+
+            case R.id.Add:
+                startActivity(new Intent(Add.this, Add.class));
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

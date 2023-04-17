@@ -3,7 +3,10 @@ package com.example.ca4;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -78,6 +81,31 @@ public class Update extends AppCompatActivity {
 
 
 
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_navigate, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Toast.makeText(this, "Selected Item: " + item.getTitle(), Toast.LENGTH_SHORT).show();
+        switch (item.getItemId()) {
+            case R.id.Home:
+                startActivity(new Intent(Update.this, MainActivity.class));
+                return true;
+            case R.id.Update:
+                startActivity(new Intent(Update.this, Update.class));
+                return true;
+
+            case R.id.Add:
+                startActivity(new Intent(Update.this, Add.class));
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }
