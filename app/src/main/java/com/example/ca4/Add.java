@@ -1,5 +1,6 @@
 package com.example.ca4;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,10 +15,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Add extends AppCompatActivity {
+
     EditText  name, price,manu,cat,stock;
     Button add;
     FirebaseDatabase rootNode;
@@ -53,8 +57,20 @@ public class Add extends AppCompatActivity {
         String aCat = cat.getText().toString();
         int aStock = Integer.parseInt(stock.getText().toString());
         Items items = new Items(aName,aPrice,aManu,aCat,aStock);
+        rootNode = FirebaseDatabase.getInstance();
+        itemDB = rootNode.getReference("Items");
+        itemDB.child(aName).setValue(items).addOnCompleteListener(new OnCompleteListener<Void>() {
 
-        itemDB.push().setValue(items);
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
 
+                name.setText("");
+                price.setText("");
+                manu.setText("");
+                cat.setText("");
+                stock.setText("");
+
+            }
+        });
     }
 }
