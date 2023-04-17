@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Update">
+
+    <TextView
+        android:id="@+id/UpdateUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Users"
+        android:textSize="20dp"
+        android:layout_marginBottom="20dp"/>
+
+
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/UpdateUser"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Name" />
+
+
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Address" />
+
+
+    <EditText
+        android:id="@+id/payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Enter Payment methods" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/payment"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="20dp"
+        android:text="Update" />
+
+
+
+</RelativeLayout>
